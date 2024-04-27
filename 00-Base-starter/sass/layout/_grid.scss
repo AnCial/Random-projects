@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.row {
+  // max-width: $grid-width;
+  margin: 0 auto;
+  display: flex;
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+[class^="col-"] {
+  padding: $column-padding;
+  text-align: center;
+  color: $color-white;
+
+  justify-content: space-between;
+}
+
+.col-1-of-2 {
+  flex: 1;
+}
+.col-1-of-3 {
+  flex: 1;
+}
+
+.col-2-of-3 {
+  flex: 2.17;
+}
+.col-1-of-4 {
+  flex: 1;
+}
+
+.col-2-of-4 {
+  flex: 2.25;
+}
+.col-3-of-4 {
+  flex: 3.5;
+}

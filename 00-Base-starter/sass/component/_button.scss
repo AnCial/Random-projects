@@ -1,0 +1,83 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.button {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* background-color: ; */
+    padding: 1.5rem 4rem;
+    border-radius: 15rem;
+    display: inline-block;
+    // margin-top: 6rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-0.4rem);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s;
+  }
+
+  &--animated {
+    animation-name: moveInBottom;
+    animation-delay: 0.75s;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+  }
+}
+
+.button-text {
+  &:link,
+  &:visited {
+    font-weight: 700;
+    border-bottom: 1px solid $color-white;
+    text-decoration: none;
+    color: $color-white;
+    padding: 0.8rem 0.3rem 0.8rem 0.3rem;
+    display: inline-block;
+    transition: all 0.2s;
+    font-size: $default-font-size;
+  }
+
+  &:hover,
+  &:active {
+    background-color: $color-primary;
+    color: $color-white;
+    transform: translateY(-0.4rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+}
